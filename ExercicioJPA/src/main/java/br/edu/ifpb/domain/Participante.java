@@ -1,21 +1,19 @@
 package br.edu.ifpb.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "Participantes")
 public class Participante {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "participante_sequence")
+    @SequenceGenerator(name = "participante_sequence", sequenceName = "part_seq")
     private Integer id;
     private String nome;
     private String email;
     private String nomeCracha;
     private String instituição;
-    private String CP
+    private String CPF;
     private String tipoUsuario;
     private String profissao;
 

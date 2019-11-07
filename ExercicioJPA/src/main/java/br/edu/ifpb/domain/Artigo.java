@@ -1,12 +1,13 @@
 package br.edu.ifpb.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 @Table(name = "Artigos")
 public class Artigo {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private  String titulo;
     private String orientador;

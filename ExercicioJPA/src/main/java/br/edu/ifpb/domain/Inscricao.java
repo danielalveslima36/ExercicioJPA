@@ -1,19 +1,38 @@
 package br.edu.ifpb.domain;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
 @Table(name = "Inscricoes")
-public class Inscricao {
+public class Inscricao implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue
     private Integer id;
     private String status;
     private Date dataInscricao;
     private Double preco;
     private String tipoEvento;
     private String tipoPartipacao;
+
+    public Inscricao(String status, Date dataInscricao, Double preco, String tipoEvento, String tipoPartipacao) {
+        this.status = status;
+        this.dataInscricao = dataInscricao;
+        this.preco = preco;
+        this.tipoEvento = tipoEvento;
+        this.tipoPartipacao = tipoPartipacao;
+    }
+
+    public Inscricao (){}
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getStatus() {
         return status;
@@ -54,4 +73,6 @@ public class Inscricao {
     public void setTipoPartipacao(String tipoPartipacao) {
         this.tipoPartipacao = tipoPartipacao;
     }
+
+
 }

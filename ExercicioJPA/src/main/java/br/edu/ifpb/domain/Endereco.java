@@ -1,17 +1,39 @@
 package br.edu.ifpb.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "Enderecos")
-public class Endereco {
+public class Endereco implements Serializable {
+    @Id
+    @GeneratedValue
+    private Integer id;
     private String logradouro;
     private String numero;
     private String bairro;
     private String cidade;
     private String estado;
     private String cep;
+
+    public Endereco(){ }
+
+    public Endereco(String logradouro, String numero, String bairro, String cidade, String estado, String cep) {
+        this.logradouro = logradouro;
+        this.numero = numero;
+        this.bairro = bairro;
+        this.cidade = cidade;
+        this.estado = estado;
+        this.cep = cep;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getLogradouro() {
         return logradouro;
